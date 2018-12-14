@@ -1,0 +1,38 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "The D3D blog platform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt dev",
+    "generate": "nuxt generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Didattica3D/blog.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Franchino Fabio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Didattica3D/blog/issues"
+  },
+  "homepage": "https://github.com/Didattica3D/blog#readme",
+  "dependencies": {
+    "@nuxtjs/moment": "^1.0.0",
+    "axios": "^0.16.2",
+    "countup.js": "^1.9.3",
+    "moment": "^2.22.2",
+    "normalize.css": "^7.0.0",
+    "nuxt": "^1.0.0-rc11",
+    "vue-count-to": "^1.0.13",
+    "vue-countup-v2": "^1.0.3",
+    "vuex-persistedstate": "^2.5.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
+  }
+}
