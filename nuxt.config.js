@@ -36,20 +36,34 @@ module.exports = {
   },
   modules: [
     '@nuxtjs/moment',
+    [
+      'nuxt-mq',
+      {
+        // Default breakpoint for SSR
+        defaultBreakpoint: 'default',
+        breakpoints: {
+          sm: 450,
+          md: 780,
+          lg: Infinity
+        }
+      }
+    ]
   ],
-  plugins: ['~plugins/filters.js'],
-  generate: {
-    routes() {
-      return axios.get('https://jsonplaceholder.typicode.com/posts')
-        .then((res) => {
-          var rts = []
-          res.data.forEach((d) => {
-            rts.push('/article/' + d.id)
-          })
-          return rts
-        })
+  plugins: [{
+      src: '~/plugins/filters.js'
+    },
+    {
+      ssr: false,
+      src: '~/plugins/flickity-resize.js'
+    },
+    {
+      src: '~/plugins/vue-scroll-reveal',
+      ssr: false
+    }, {
+      src: '~/plugins/vue-flickity.js',
+      ssr: false
     }
-  },
+  ],
   build: {
     vendor: [
       'axios'

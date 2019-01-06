@@ -1,17 +1,17 @@
 <template>
 
   <main>
-    <Sidebar />
+    <Header />
     <nuxt />
   </main>
 </template>
 
 <script>
-import Sidebar from "~/components/sidebar.vue";
+import Header from "~/components/header.vue";
 
 export default {
   components: {
-    Sidebar
+    Header
   }
 };
 </script>

@@ -2,26 +2,37 @@
 @import variables
 
 // Reset and dependencies
-@import src/normalize
+@import normalize
 
-// Core CSS
-@import src/flexbox
-@import src/scaffolding
-@import src/grid
-
-// Utility classes
-@import src/responsive-utilities
-@import src/utilities
-
-.container 
+// Basic Flex Grid
+.flex-container 
 	width: 93%
 	max-width: 1600px
 	margin: 0 auto
 
-.frow
+.about 
+	.flex-grid
+		.col:first-child
+			width: 56%
+		.col:nth-child(2)
+			width: 40%
+
+.flex-grid
+	display: flex
+	justify-content: space-between
+	.col
+	flex: 1
+
+.flex-grid-two
+	display: flex
+	justify-content: space-between
 	.col-left
 		width: 52%
 	.col-right
 		width: 46%
-		margin-left: 2%
 
+.flex-grid-three
+	display: flex
+	justify-content: space-between
+	.col
+		width: 32%

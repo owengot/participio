@@ -1,7 +1,7 @@
 {
-  "name": "blog",
+  "name": "ParticipIO",
   "version": "1.0.0",
-  "description": "The D3D blog platform",
+  "description": "Homepage for development lab Particip IO, using Nuxt.js and the Discourse API.",
   "main": "index.js",
   "scripts": {
     "dev": "nuxt dev",
@@ -9,27 +9,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Didattica3D/blog.git"
+    "url": "git+https://github.com/Edgeryders-Participio/particip_io.git"
   },
   "keywords": [
-    "blog"
+    "homepage"
   ],
-  "author": "Franchino Fabio",
+  "author": "Edgeryders / Particip IO",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Didattica3D/blog/issues"
+    "url": "https://github.com/Edgeryders-Participio/particip_io/issues"
   },
-  "homepage": "https://github.com/Didattica3D/blog#readme",
+  "homepage": "https://participio.netlify.com",
   "dependencies": {
     "@nuxtjs/moment": "^1.0.0",
     "axios": "^0.16.2",
     "countup.js": "^1.9.3",
     "moment": "^2.22.2",
-    "normalize.css": "^7.0.0",
     "nuxt": "^1.0.0-rc11",
+    "nuxt-mq": "^1.1.3",
     "vue-count-to": "^1.0.13",
-    "vue-countup-v2": "^1.0.3",
-    "vuex-persistedstate": "^2.5.4"
+    "vue-flickity": "^1.1.2",
+    "vue-scroll-reveal": "^1.0.11"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",
