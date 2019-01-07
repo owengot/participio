@@ -43,8 +43,8 @@ module.exports = {
         defaultBreakpoint: 'default',
         breakpoints: {
           sm: 450,
-          md: 780,
-          lg: Infinity
+          md: 980,
+          lg: 1000,
         }
       }
     ]

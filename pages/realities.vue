@@ -72,7 +72,7 @@
           <p>
             <countTo
               :startVal='1'
-              :endVal='2000'
+              :endVal='commits'
               :decimals="0"
               :duration='3000'
               class="bold"
@@ -115,7 +115,7 @@
           <p>
             <countTo
               :startVal='1'
-              :endVal='2000'
+              :endVal='code_frequency'
               :decimals="0"
               :duration='3000'
               class="bold"
@@ -551,8 +551,8 @@ export default {
   },
   async asyncData({ query, error }) {
     let [res, github] = await Promise.all([
-      axios.get("https://edgeryders.eu/c/participio/realities.json")
-      // axios.get("https://participio-api.herokuapp.com")
+      axios.get("https://edgeryders.eu/c/participio/realities.json"),
+      axios.get("https://participio-api.herokuapp.com")
     ]);
     return {
       topics: res.data.topic_list.topics,
@@ -564,15 +564,15 @@ export default {
       totalLikes: res.data.topic_list.topics.reduce(
         (sum, currentItem) => currentItem.like_count + sum,
         0
-      )
-      // commits: github.data[
-      //   "repos/Edgeryders-Participio/realities/contributors"
-      // ].reduce((sum, currentItem) => currentItem.contributions + sum, 0),
-      // contributors:
-      //   github.data["repos/Edgeryders-Participio/realities/contributors"],
-      // code_frequency: github.data[
-      //   "repos/Edgeryders-Participio/realities/stats/code_frequency"
-      // ].reduce((sum, currentItem) => currentItem[1] + currentItem[2] + sum, 0)
+      ),
+      commits: github.data[
+        "repos/Edgeryders-Participio/realities/contributors"
+      ].reduce((sum, currentItem) => currentItem.contributions + sum, 0),
+      contributors:
+        github.data["repos/Edgeryders-Participio/realities/contributors"],
+      code_frequency: github.data[
+        "repos/Edgeryders-Participio/realities/stats/code_frequency"
+      ].reduce((sum, currentItem) => currentItem[1] + currentItem[2] + sum, 0)
     };
   },
   head: {}
