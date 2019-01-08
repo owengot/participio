@@ -4,7 +4,7 @@
     <nav class="wrapper">
       <div class="logos">
         <div id="er_logo"></div>
-         <a href="/">
+        <a href="/">
           <h1>particip_io</h1>
         </a>
       </div>
