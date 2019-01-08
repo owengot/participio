@@ -535,6 +535,8 @@ export default {
       totalOfViews: 0,
       code_frequency: "",
       contributors: "",
+      gitcontributors: "",
+      gitfrequency: "",
       commits: "",
       totalLikes: 0,
       github: "",
@@ -550,9 +552,14 @@ export default {
     };
   },
   async asyncData({ query, error }) {
-    let [res, github] = await Promise.all([
+    let [res, gitcontributors, gitfrequency] = await Promise.all([
       axios.get("https://edgeryders.eu/c/participio/realities.json"),
-      axios.get("https://participio-api.herokuapp.com")
+      axios.get(
+        "https://api.github.com/repos/Edgeryders-Participio/realities/contributors"
+      ),
+      axios.get(
+        "https://api.github.com/repos/Edgeryders-Participio/realities/stats/code_frequency"
+      )
     ]);
     return {
       topics: res.data.topic_list.topics,
@@ -565,14 +572,15 @@ export default {
         (sum, currentItem) => currentItem.like_count + sum,
         0
       ),
-      commits: github.data[
-        "repos/Edgeryders-Participio/realities/contributors"
-      ].reduce((sum, currentItem) => currentItem.contributions + sum, 0),
-      contributors:
-        github.data["repos/Edgeryders-Participio/realities/contributors"],
-      code_frequency: github.data[
-        "repos/Edgeryders-Participio/realities/stats/code_frequency"
-      ].reduce((sum, currentItem) => currentItem[1] + currentItem[2] + sum, 0)
+      commits: gitcontributors.data.reduce(
+        (sum, currentItem) => currentItem.contributions + sum,
+        0
+      ),
+      contributors: gitcontributors.data,
+      code_frequency: gitfrequency.data.reduce(
+        (sum, currentItem) => currentItem[1] + currentItem[2] + sum,
+        0
+      )
     };
   },
   head: {}
