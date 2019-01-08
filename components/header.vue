@@ -4,9 +4,9 @@
     <nav class="wrapper">
       <div class="logos">
         <div id="er_logo"></div>
-        <nuxt-link :to="'/'">
+         <a href="/">
           <h1>particip_io</h1>
-        </nuxt-link>
+        </a>
       </div>
 
       <input
