@@ -1,7 +1,10 @@
 <template>
 
   <nav class="navBar">
-    <nav class="wrapper">
+    <nav
+      class="wrapper"
+      id="nav"
+    >
       <div class="logos">
         <div id="er_logo"></div>
         <a href="/">
@@ -47,18 +50,40 @@ export default {
     window.onscroll = function() {
       var nav = document.getElementById("nav");
       if (window.pageYOffset > 300) {
-        nav.classList.add("navbar1");
+        nav.classList.add("dark");
       } else {
-        nav.classList.remove("navbar1");
+        nav.classList.remove("dark");
       }
     };
   }
 };
 </script>
 
-<style scoped>
-h1 {
+<style lang="scss" scoped>
+.wrapper {
+  background: rgba(34, 34, 34, 0.432);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
+  height: auto;
+  border-radius: 0 0 20px 20px;
+  display: inline-block !important;
+  z-index: 99999;
+  transition: all 0.3s ease;
+  width: 100%;
+  padding: 0;
+  position: fixed;
   font-family: "Exo 2";
+  margin: 0 auto;
+  max-width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  transition: all 1s ease;
+  &.dark {
+    background: rgba(34, 34, 34, 0.832);
+  }
+}
+
+h1 {
   font-weight: 300;
   color: rgb(242, 242, 242);
   float: right;
@@ -82,6 +107,32 @@ h1 {
   position: relative;
   float: left;
   margin: 0 0 0 15px;
+}
+
+nav ul {
+  display: flex;
+  align-content: flex-end;
+  list-style-type: none;
+  width: auto;
+  float: right;
+  padding-top: 13px;
+  padding-right: 15px;
+  li {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+  }
+}
+nav ul a {
+  color: white;
+  text-decoration: none;
+
+  font-size: 1.1em;
+  padding: 13px;
+  border: 1px solid rgba(255, 255, 255, 0.507);
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  margin-right: 20px !important;
 }
 
 input[type="checkbox"] {
@@ -157,63 +208,13 @@ input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   margin-top: -9px;
 }
 
-.label-toggle {
-  display: block;
-}
-.wrapper {
-  background: rgba(34, 34, 34, 0.432);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
-  height: auto;
-  border-radius: 0 0 20px 20px;
-  display: inline-block !important;
-  z-index: 99999;
-  transition: all 0.3s ease;
-  width: 100%;
-  padding: 0;
-  position: fixed;
-  font-family: "Exo 2";
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-nav ul {
-  display: flex;
-  align-content: flex-end;
-  list-style-type: none;
-  width: auto;
-  float: right;
-  padding-top: 13px;
-  padding-right: 15px;
-  li {
-    display: inline-block;
-    width: auto;
-    margin: 0;
-  }
-}
-nav ul a {
-  color: white;
-  text-decoration: none;
-
-  font-size: 1.1em;
-  padding: 13px;
-  border: 1px solid rgba(255, 255, 255, 0.507);
-  border-radius: 10px;
-  transition: all 0.5s ease;
-  margin-right: 20px !important;
-}
-
 .sidebarIconToggle {
   display: none;
 }
 nav .label-toggle {
   display: none;
 }
-nav .wrapper {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  transition: all 1s ease;
-}
+
 @media screen and (max-width: 980px) {
   .sidebarIconToggle {
     display: inline-block;
